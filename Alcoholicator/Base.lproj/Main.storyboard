@@ -17,12 +17,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="???" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kKl-Mv-daE">
-                                <rect key="frame" x="31" y="287" width="538" height="26"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="% Alcohol Content per Beer" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="I5i-v6-3vm">
                                 <rect key="frame" x="16" y="28" width="568" height="30"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -33,13 +27,19 @@
                                 <rect key="frame" x="14" y="66" width="572" height="31"/>
                             </slider>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Riq-hs-9Ig">
-                                <rect key="frame" x="238" y="210" width="124" height="45"/>
+                                <rect key="frame" x="31" y="210" width="538" height="45"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="30"/>
                                 <state key="normal" title="Calculate?">
                                     <color key="titleColor" red="0.60074295339999995" green="0.1403637771" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="???" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kKl-Mv-daE">
+                                <rect key="frame" x="31" y="287" width="538" height="26"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -53,6 +53,7 @@
                             <constraint firstItem="I5i-v6-3vm" firstAttribute="width" secondItem="V0G-yW-gBF" secondAttribute="width" id="hrh-hw-cJQ"/>
                             <constraint firstItem="Riq-hs-9Ig" firstAttribute="top" secondItem="V0G-yW-gBF" secondAttribute="bottom" constant="114" id="omI-V1-jWn"/>
                             <constraint firstItem="I5i-v6-3vm" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="pwg-J7-WOf"/>
+                            <constraint firstItem="Riq-hs-9Ig" firstAttribute="width" secondItem="kKl-Mv-daE" secondAttribute="width" id="qH0-1d-WxS"/>
                             <constraint firstItem="kKl-Mv-daE" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="15" id="uo7-gr-W5r"/>
                             <constraint firstItem="I5i-v6-3vm" firstAttribute="centerX" secondItem="V0G-yW-gBF" secondAttribute="centerX" id="znh-Pf-v4Q"/>
                         </constraints>
