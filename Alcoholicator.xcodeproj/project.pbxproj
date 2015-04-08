@@ -15,6 +15,7 @@
 		FE7E9AAD1AD471720050CEB2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE7E9AAB1AD471720050CEB2 /* LaunchScreen.xib */; };
 		FE7E9AB91AD471720050CEB2 /* AlcoholicatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7E9AB81AD471720050CEB2 /* AlcoholicatorTests.m */; };
 		FE7E9AC41AD4B23A0050CEB2 /* WhiskeyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7E9AC31AD4B23A0050CEB2 /* WhiskeyViewController.m */; };
+		FE7E9AC71AD4C0AB0050CEB2 /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7E9AC61AD4C0AB0050CEB2 /* MainMenuViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,8 @@
 		FE7E9AB81AD471720050CEB2 /* AlcoholicatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AlcoholicatorTests.m; sourceTree = "<group>"; };
 		FE7E9AC21AD4B23A0050CEB2 /* WhiskeyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WhiskeyViewController.h; sourceTree = "<group>"; };
 		FE7E9AC31AD4B23A0050CEB2 /* WhiskeyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WhiskeyViewController.m; sourceTree = "<group>"; };
+		FE7E9AC51AD4C0AB0050CEB2 /* MainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuViewController.h; sourceTree = "<group>"; };
+		FE7E9AC61AD4C0AB0050CEB2 /* MainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +93,8 @@
 				FE7E9AA41AD471720050CEB2 /* ViewController.m */,
 				FE7E9AC21AD4B23A0050CEB2 /* WhiskeyViewController.h */,
 				FE7E9AC31AD4B23A0050CEB2 /* WhiskeyViewController.m */,
+				FE7E9AC51AD4C0AB0050CEB2 /* MainMenuViewController.h */,
+				FE7E9AC61AD4C0AB0050CEB2 /* MainMenuViewController.m */,
 				FE7E9AA61AD471720050CEB2 /* Main.storyboard */,
 				FE7E9AA91AD471720050CEB2 /* Images.xcassets */,
 				FE7E9AAB1AD471720050CEB2 /* LaunchScreen.xib */,
@@ -228,6 +233,7 @@
 				FE7E9AC41AD4B23A0050CEB2 /* WhiskeyViewController.m in Sources */,
 				FE7E9AA21AD471720050CEB2 /* AppDelegate.m in Sources */,
 				FE7E9A9F1AD471720050CEB2 /* main.m in Sources */,
+				FE7E9AC71AD4C0AB0050CEB2 /* MainMenuViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
