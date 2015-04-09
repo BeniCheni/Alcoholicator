@@ -25,11 +25,7 @@
     NSLog(@"Slider value changed to %f", sender.value);
     [self.beerPercentTextField resignFirstResponder];
     
-    // first, calculate how much alcohol is in all those beers...
-    self.numberOfBeers = self.beerCountSlider.value;
-    self.alcoholPercentageOfBeer = [self.beerPercentTextField.text floatValue] / 100;
-    self.ouncesOfAlcoholPerBeer = OUNCES_IN_ONE_BEER_GLASS * self.alcoholPercentageOfBeer;
-    self.ouncesOfAlcoholTotal = self.ouncesOfAlcoholPerBeer * self.numberOfBeers;
+    [self calculateGenericNumbers];
     
     // now, calculate the equivalent amount of whiskey shots...
     self.ouncesOfAlcoholPerWhiskeyShot = OUNCES_IN_ONE_WHISKEY_SHOT * ALCOHOL_PERCENTAGE_OF_WHISKEY;
@@ -47,11 +43,7 @@
 - (void)buttonPressed:(UIButton *)sender {
     [self.beerPercentTextField resignFirstResponder];
     
-    // first, calculate how much alcohol is in all those beers...
-    self.numberOfBeers = self.beerCountSlider.value;
-    self.alcoholPercentageOfBeer = [self.beerPercentTextField.text floatValue] / 100;
-    self.ouncesOfAlcoholPerBeer = OUNCES_IN_ONE_BEER_GLASS * self.alcoholPercentageOfBeer;
-    self.ouncesOfAlcoholTotal = self.ouncesOfAlcoholPerBeer * self.numberOfBeers;
+    [self calculateGenericNumbers];
     
     // now, calculate the equivalent amount of whiskey shots...
     self.ouncesOfAlcoholPerWhiskeyShot = OUNCES_IN_ONE_WHISKEY_SHOT * ALCOHOL_PERCENTAGE_OF_WHISKEY;

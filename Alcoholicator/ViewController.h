@@ -23,4 +23,6 @@
 @property (assign) float ouncesOfAlcoholPerBeer;
 @property (assign) float ouncesOfAlcoholTotal;
 
+- (void)calculateGenericNumbers;
+
 @end
