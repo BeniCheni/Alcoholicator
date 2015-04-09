@@ -18,4 +18,9 @@
 @property (weak, nonatomic) IBOutlet UISlider *beerCountSlider;
 @property (weak, nonatomic) IBOutlet UILabel *resultLabel;
 
+@property (assign) int numberOfBeers;
+@property (assign) float alcoholPercentageOfBeer;
+@property (assign) float ouncesOfAlcoholPerBeer;
+@property (assign) float ouncesOfAlcoholTotal;
+
 @end
