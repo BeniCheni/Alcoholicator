@@ -14,12 +14,12 @@
 @property (assign) float alcoholPercentageOfBeer;
 @property (assign) float ouncesOfAlcoholPerBeer;
 @property (assign) float ouncesOfAlcoholTotal;
+@property (assign) float ouncesOfAlcoholPerWhiskeyShot;
 @property (assign) float numberOfWhiskeyShotsForEquivalentAlcoholAmount;
 
 @end
 
 @implementation WhiskeyViewController
-//@dynamic ouncesInOneBeerGlass;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -34,7 +34,8 @@
     self.alcoholPercentageOfBeer = [self.beerPercentTextField.text floatValue] / 100;
     self.ouncesOfAlcoholPerBeer = OUNCES_IN_ONE_BEER_GLASS * self.alcoholPercentageOfBeer;
     self.ouncesOfAlcoholTotal = self.ouncesOfAlcoholPerBeer * self.numberOfBeers;
-    self.numberOfWhiskeyShotsForEquivalentAlcoholAmount = self.ouncesOfAlcoholTotal / OUNCES_OF_ALCOHOL_PER_WHISKEY_SHOT;
+    self.ouncesOfAlcoholPerWhiskeyShot = OUNCES_IN_ONE_WHISKEY_SHOT * ALCOHOL_PERCENTAGE_OF_WHISKEY;
+    self.numberOfWhiskeyShotsForEquivalentAlcoholAmount = self.ouncesOfAlcoholTotal / self.ouncesOfAlcoholPerWhiskeyShot;
     
     NSString *shotWord = NSLocalizedString(@"shot", @"singular shot");
     
@@ -48,12 +49,12 @@
 - (void)buttonPressed:(UIButton *)sender {
     [self.beerPercentTextField resignFirstResponder];
     
-    // Calculate real time per event
     self.numberOfBeers = self.beerCountSlider.value;
     self.alcoholPercentageOfBeer = [self.beerPercentTextField.text floatValue] / 100;
     self.ouncesOfAlcoholPerBeer = OUNCES_IN_ONE_BEER_GLASS * self.alcoholPercentageOfBeer;
     self.ouncesOfAlcoholTotal = self.ouncesOfAlcoholPerBeer * self.numberOfBeers;
-    self.numberOfWhiskeyShotsForEquivalentAlcoholAmount = self.ouncesOfAlcoholTotal / OUNCES_OF_ALCOHOL_PER_WHISKEY_SHOT;
+    self.ouncesOfAlcoholPerWhiskeyShot = OUNCES_IN_ONE_WHISKEY_SHOT * ALCOHOL_PERCENTAGE_OF_WHISKEY;
+    self.numberOfWhiskeyShotsForEquivalentAlcoholAmount = self.ouncesOfAlcoholTotal / self.ouncesOfAlcoholPerWhiskeyShot;
     
     NSString *beerText = NSLocalizedString(@"beer", @"singular beer");
     
