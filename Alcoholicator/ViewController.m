@@ -40,7 +40,14 @@
 - (IBAction)sliderValueDidChange:(UISlider *)sender {
     NSLog(@"Slider value changed to %f", sender.value);
     [self.beerPercentTextField resignFirstResponder];
-    [self.tabBarItem setBadgeValue:[NSString stringWithFormat:@"%d", (int) sender.value]];
+    
+    [self calculateGenericNumbers];
+    
+    // now, calculate the equivalent amount of wine...
+    self.ouncesOfAlcoholPerWineGlass = OUNCES_IN_ONE_WINE_GLASS * ALCOHOL_PERCENTAGE_OF_WINE;
+    self.numberOfWineGlassesForEquivalentAlcoholAmount = self.ouncesOfAlcoholTotal / self.ouncesOfAlcoholPerWineGlass;
+    
+    [self.tabBarItem setBadgeValue:[NSString stringWithFormat:@"%f", self.numberOfWineGlassesForEquivalentAlcoholAmount]];
 }
 
 - (IBAction)buttonPressed:(UIButton *)sender {
@@ -49,7 +56,7 @@
     [self calculateGenericNumbers];
     
     // now, calculate the equivalent amount of wine...
-    self.ouncesOfAlcoholPerWineGlass = OUNCES_IN_ONE_BEER_GLASS * ALCOHOL_PERCENTAGE_OF_WINE;
+    self.ouncesOfAlcoholPerWineGlass = OUNCES_IN_ONE_WINE_GLASS * ALCOHOL_PERCENTAGE_OF_WINE;
     self.numberOfWineGlassesForEquivalentAlcoholAmount = self.ouncesOfAlcoholTotal / self.ouncesOfAlcoholPerWineGlass;
     
     // decide whether to use "beer"/"beers" and "glass"/"glasses"
@@ -82,7 +89,6 @@
     self.alcoholPercentageOfBeer = [self.beerPercentTextField.text floatValue] / 100;
     self.ouncesOfAlcoholPerBeer = OUNCES_IN_ONE_BEER_GLASS * self.alcoholPercentageOfBeer;
     self.ouncesOfAlcoholTotal = self.ouncesOfAlcoholPerBeer * self.numberOfBeers;
-    
 }
 
 - (IBAction)tapGestureDidFire:(UITapGestureRecognizer *)sender {
