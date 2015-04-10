@@ -10,48 +10,66 @@
 
 @interface WhiskeyViewController ()
 
+@property (assign) float ouncesOfAlcoholPerWhiskeyShot;
+@property (assign) float numberOfWhiskeyShotsForEquivalentAlcoholAmount;
+
 @end
 
 @implementation WhiskeyViewController
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+}
+
+- (void)sliderValueDidChange:(UISlider *)sender {
+    NSLog(@"Slider value changed to %f", sender.value);
+    [self.beerPercentTextField resignFirstResponder];
+    
+    [self calculateGenericNumbers];
+    
+    // now, calculate the equivalent amount of whiskey shots...
+    self.ouncesOfAlcoholPerWhiskeyShot = OUNCES_IN_ONE_WHISKEY_SHOT * ALCOHOL_PERCENTAGE_OF_WHISKEY;
+    self.numberOfWhiskeyShotsForEquivalentAlcoholAmount = self.ouncesOfAlcoholTotal / self.ouncesOfAlcoholPerWhiskeyShot;
+    
+    NSString *shotWord = NSLocalizedString(@"shot", @"singular shot");
+    
+    if (self.numberOfWhiskeyShotsForEquivalentAlcoholAmount > 1) {
+        shotWord = NSLocalizedString(@"shots", @"plural of shot");
+    }
+    
+    self.title = [NSString stringWithFormat:NSLocalizedString(@"Whiskey (%.1f %@)", @"Number of shots"), self.numberOfWhiskeyShotsForEquivalentAlcoholAmount, shotWord];
+}
+
 - (void)buttonPressed:(UIButton *)sender {
     [self.beerPercentTextField resignFirstResponder];
     
-    int numberOfBeers = self.beerCountSlider.value;
-    int ouncesInOneBeerGlass = 12;  //assume they are 12oz beer bottles
-    float alcoholPercentageOfBeer = [self.beerPercentTextField.text floatValue] / 100;
-    float ouncesOfAlcoholPerBeer = ouncesInOneBeerGlass * alcoholPercentageOfBeer;
-    float ouncesOfAlcoholTotal = ouncesOfAlcoholPerBeer * numberOfBeers;
+    [self calculateGenericNumbers];
     
-    float ouncesInOneWhiskeyGlass = 1;  // a 1oz shot
-    float alcoholPercentageOfWhiskey = 0.4;  // 40% is average
-    float ouncesOfAlcoholPerWhiskeyGlass = ouncesInOneWhiskeyGlass * alcoholPercentageOfWhiskey;
-    float numberOfWhiskeyGlassesForEquivalentAlcoholAmount
-            = ouncesOfAlcoholTotal / ouncesOfAlcoholPerWhiskeyGlass;
+    // now, calculate the equivalent amount of whiskey shots...
+    self.ouncesOfAlcoholPerWhiskeyShot = OUNCES_IN_ONE_WHISKEY_SHOT * ALCOHOL_PERCENTAGE_OF_WHISKEY;
+    self.numberOfWhiskeyShotsForEquivalentAlcoholAmount = self.ouncesOfAlcoholTotal / self.ouncesOfAlcoholPerWhiskeyShot;
     
-    NSString *beerText;
+    NSString *beerText = NSLocalizedString(@"beer", @"singular beer");
     
-    if (numberOfBeers == 1) {
-        beerText = NSLocalizedString(@"beer", @"singular beer");
-    } else {
+    if (self.numberOfBeers > 1) {
         beerText = NSLocalizedString(@"beers", @"plural of beer");
     }
     
-    NSString *whiskeyText;
+    NSString *whiskeyText = NSLocalizedString(@"shot", @"singular shot");
     
-    if (numberOfWhiskeyGlassesForEquivalentAlcoholAmount == 1) {
-        whiskeyText = NSLocalizedString(@"shot", @"singular shot");
-    } else {
+    if (self.numberOfWhiskeyShotsForEquivalentAlcoholAmount > 1) {
         whiskeyText = NSLocalizedString(@"shots", @"plural of shot");
     }
     
+    self.title = [NSString stringWithFormat:NSLocalizedString(@"Whiskey (%.1f %@)", @"Number of shots"), _numberOfWhiskeyShotsForEquivalentAlcoholAmount, whiskeyText];;
+    
     NSString *resultText
         = [NSString stringWithFormat:NSLocalizedString(@"%d %@ (with %.2f%% alcohol) contains as much alcohol as %.1f %@ of whiskey.", nil),
-                    numberOfBeers,
-                    beerText,
-                    [self.beerPercentTextField.text floatValue],
-                    numberOfWhiskeyGlassesForEquivalentAlcoholAmount,
-                    whiskeyText];
+           self.numberOfBeers,
+           beerText,
+           [self.beerPercentTextField.text floatValue],
+           _numberOfWhiskeyShotsForEquivalentAlcoholAmount,
+           whiskeyText];
     self.resultLabel.text = resultText;
 }
 
